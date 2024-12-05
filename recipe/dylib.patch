@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index baf73e2..e8043f7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -105,7 +105,7 @@ lib: lib/libProfessor2.so
+ 
+ lib/libProfessor2.so: $(LIBOBJECTS)
+ 	mkdir -p lib
+-	$(CXX) -shared -o $@ $(LIBOBJECTS)
++	cd lib && $(CXX) -shared -o $(notdir $@) $(addprefix ../,$(LIBOBJECTS))
+ 
+ obj/%.o: src/%.cc $(LIBHEADERS)
+ 	mkdir -p obj
+-- 
