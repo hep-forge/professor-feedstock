@@ -1,0 +1,48 @@
+{% set versions = {
+    "2.4.2": "469d9b92d078fd621ea2c67383de10457811a1348a64b08fb585fc3a3e1046c1"
+} %}
+
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "professor")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace("-", ".") }}
+
+source:
+  url: "https://gitlab.com/hepcedar/professor/-/archive/professor-{{ version }}/professor-professor-{{ version }}.tar.gz"
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - make
+    - automake
+    - autoconf
+    - libtool
+  host:
+    - python
+    - cython >=0.24
+    - eigen
+    - yoda
+
+  run:
+    - python
+    - eigen
+    - yoda
+
+about:
+  home: "https://gitlab.com/hepcedar/professor"
+  license: "GPL-3.0"
+  summary: "Professor 2 -- new machinery for fast parameterisation and MC tuning"
+  description: |
+    Professor 2 tool for SVD polynomial parametrisation, used in multiple high-energy physics optimisation applications, from MC generator tuning to BSM parameter-space explorations.
+
+extra:
+  recipe-maintainers:
+    - meiyasan
