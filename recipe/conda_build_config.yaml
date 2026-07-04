@@ -1,8 +1,5 @@
 python:
-  - 3.9
-  - 3.10
-  - 3.11
-  - 3.12
+  - 3.12                     # must match yoda>=2.1 root638's own python (see meta.yaml)
 
 c_stdlib:
   - sysroot                  # [linux]
