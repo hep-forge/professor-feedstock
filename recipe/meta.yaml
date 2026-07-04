@@ -33,14 +33,14 @@ requirements:
     - eigen
     - matplotlib
     - numpy
-    - yoda >=2.1
+    - yoda >=2.1 root638
 
   run:
     - python
     - eigen
     - matplotlib
     - numpy
-    - yoda >=2.1
+    - yoda >=2.1 root638
 
 about:
   home: "https://gitlab.com/hepcedar/professor"
