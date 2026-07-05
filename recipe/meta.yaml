@@ -29,6 +29,7 @@ requirements:
     - libtool
   host:
     - python
+    - pip                     # build's pydeps target checks for pip support
     - cython >=0.24
     - eigen
     - matplotlib
