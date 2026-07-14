@@ -2,9 +2,11 @@ python:
   - 3.12                     # must match yoda>=2.1 root638's own python (see meta.yaml)
 
 c_stdlib:
-  - sysroot                  # [linux]
+  - sysroot                    # [linux]
+  - macosx_deployment_target   # [osx]
 c_stdlib_version:
   - 2.17    # [linux]
+  - 11.0    # [osx]
 
 # No explicit compiler-version pin: professor depends on yoda/root,
 # which build against conda-forge's current default (gcc15 as of this
