@@ -32,6 +32,7 @@ requirements:
   host:
     - python
     - pip                     # build's pydeps target checks for pip support
+    - setuptools              # 2.5 checks for it and builds a wheel
     - cython >=0.24
     - eigen
     - matplotlib
