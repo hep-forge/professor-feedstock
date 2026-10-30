@@ -20,6 +20,9 @@ source:
   patches:
     - patches/dylib.patch
 
+build:
+  number: 1
+
 requirements:
   build:
     - {{ compiler('cxx') }}
